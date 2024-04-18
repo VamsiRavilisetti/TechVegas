@@ -1,0 +1,27 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button routerLink="" aria-label=" icon-button with menu icon">
+        <mat-icon>home</mat-icon>
+    </button>
+    <span>Online Shop</span>
+
+    <form class="example-form mt-4 mx-4 ">
+        <mat-form-field class="example-full-width">
+            <mat-label>Search product</mat-label>
+            <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                <ng-container *ngFor="let option of filteredOptions | async ">
+                    <mat-option routerLink="product-details/{{option.id}}" [value]="option">{{option.name}}</mat-option>
+                </ng-container>
+            </mat-autocomplete>
+        </mat-form-field>
+    </form>
+    <span class="example-spacer"></span>
+    <button mat-icon-button routerLink="cart" aria-label=" icon-button with menu icon">
+        <mat-icon matBadge="15" matBadgeColor="warn">shopping_cart</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu"> <mat-icon>person</mat-icon></button>
+    <mat-menu #menu="matMenu">
+        <button mat-menu-item routerLink="profile">My profile</button>
+        <button mat-menu-item>My Cart</button>
+    </mat-menu>
+</mat-toolbar>

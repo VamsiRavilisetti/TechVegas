@@ -1,0 +1,17 @@
+<div class="container p-5">
+    <div class="row">
+        <div class="col-md-5">
+            <img class="img-fluid p-5" [src]="productDetails?.image">
+        </div>
+        <div class="col-md-7 mt-5 p-4">
+            <h1>{{productDetails?.title}}</h1>
+            <p>Category: {{productDetails?.category}}</p>
+            <p>Price {{productDetails?.price | currency:"INR"}}</p>
+            <p>Rating: <span>{{productDetails?.rating.rate}} </span>
+                <span>reviews({{productDetails?.rating.count}})</span>
+            </p>
+            <p>{{productDetails?.description}}</p>
+            <button color="primary" class="my-4" mat-flat-button>Add to Cart</button>
+        </div>
+    </div>
+</div>

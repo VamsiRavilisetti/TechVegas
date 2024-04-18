@@ -1,0 +1,25 @@
+.productImage {
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+.title {
+    white-space: nowrap;
+    width: 23rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-card {
+    height: 100%;
+    cursor: pointer;
+}

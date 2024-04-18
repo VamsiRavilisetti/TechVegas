@@ -1,0 +1,56 @@
+<div class="container-fluid my-4 g-0">
+    <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../../../assets/banner2.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+                <img src="../../../assets/banner2.jpg" class="d-block w-100" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+<div class="container">
+    <h1 class="text-center">High Range of Products</h1>
+    <h3>Select Categories</h3>
+    <div class="d-inline-flex justify-content-between" *ngFor="let category of categories">
+        <button mat-flat-button (click)="getProductByCategory(category)" aria-label=" Category button">
+            {{category}}
+        </button>
+    </div>
+    <div>
+        <h1 class="text-center">Products</h1>
+        <div class="row">
+            <div class="col-md-4 my-3" *ngFor="let product of products">
+                <mat-card class="product-card ">
+                    <mat-card-header routerLink="product-details/{{product?.id}}">
+                        <mat-card-title class="title" [title]="product.title">{{product.title}}</mat-card-title>
+                        <mat-card-subtitle>Category: {{product?.category}}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image routerLink="product-details/{{product?.id}}" class="productImage my-4"
+                        [src]="product?.image" alt="Product Image">
+                    <mat-card-content routerLink="product-details/{{product.id}}">
+                        <p class="description">
+                            {{product.description}}
+                        </p>
+                        <p>{{product.price | currency:"INR"}}</p>
+                        <p><span>{{product.rating.rate}} </span> <span>reviews({{product?.rating.count}})</span>
+                        </p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button color="primary" mat-flat-button>Add to Cart</button>
+                    </mat-card-actions>
+                </mat-card>
+
+            </div>
+        </div>
+    </div>
+</div>
